@@ -1,5 +1,5 @@
--- To get all color variations for each model
-select color, model from (CarColor JOIN PAINT ON CARCOLOR.PAINTID=PAINT.PID) JOIN AUTOMOBILE ON AUTOMOBILE.AID=carcolor.automobileID;
+-- To get all car associated with case
+select NameOfCase, model, Manufacturer from (AUTOMOBILE JOIN CASES ON AUTOMOBILE.CaseID=CASES.CaseID);
 
 -- To get criminal and name
 select CName, NameOfCase  from (CriminalCase JOIN Criminal ON CriminalCase.CriminalID=Criminal.CID) JOIN CASES ON CASES.CaseID=CriminalCase.CrimeID;
@@ -7,6 +7,7 @@ select CName, NameOfCase  from (CriminalCase JOIN Criminal ON CriminalCase.Crimi
 -- To get criminal and types of crimes
 select CName, TypeOfCase  from (CriminalCase JOIN Criminal ON CriminalCase.CriminalID=Criminal.CID) JOIN CASES ON CASES.CaseID=CriminalCase.CrimeID;
 
--- to get username and cases they have access to
-select username, NameOfCase from (USER JOIN ACCESS on USER.UserID=ACCESS.UserID) JOIN CASES on CASES.CaseID=ACCESS.CaseID;
-
+-- To get criminal and investigating officers
+select DISTINCT CName, LeadingOfficer from (CASES JOIN (CRIMINALCASE JOIN CRIMINAL ON CRIMINALCASE.CriminalID=CRIMINAL.CID) ON Cases.CaseID=CriminalCase.CrimeID)
+UNION
+select DISTINCT CName, AsstOfficer from (CASES JOIN (CRIMINALCASE JOIN CRIMINAL ON CRIMINALCASE.CriminalID=CRIMINAL.CID) ON Cases.CaseID=CriminalCase.CrimeID)

@@ -3,7 +3,7 @@ import pandas as pd
 from database import viewTables
 
 def read():
-    menu = ["Drugs", "Ballistics", "Paint", "Automobile", "Cases", "Criminal", "Evidence", "User"]
+    menu = ["Drugs", "Ballistics", "Paint", "Automobile", "Cases", "Criminal"]
     choice = st.sidebar.selectbox("Menu", menu)
     result = viewTables(choice)
     #print(result)

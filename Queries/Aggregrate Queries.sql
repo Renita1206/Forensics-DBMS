@@ -1,5 +1,5 @@
--- to get number of evidence instances associated with a case
-select NameOfCase, count(*) from (Evidence NATURAL JOIN CASES) group by CaseID;
+-- to get number of drug instances associated with a case
+select NameOfCase, count(*) from (DRUGS NATURAL JOIN CASES) group by CaseID;
 
 -- to get no of colors grouped by solvent
 select Solvent, count(*) from Paint group by Solvent;

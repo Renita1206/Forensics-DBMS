@@ -26,9 +26,26 @@ DETERMINISTIC
 BEGIN
     DECLARE c int;
     
-    SELECT count(CID) into case_count
-	FROM CASES
+    SELECT count(CID) into c
+	FROM Criminal
 	WHERE CurrentStatus = stat;
+    
+	RETURN c;
+END; $$
+DELIMITER ;
+
+
+-- Function to find no of cases of a particular status
+DELIMITER $$
+CREATE FUNCTION number_of_cases(stat varchar(255))
+RETURNS int
+DETERMINISTIC
+BEGIN
+    DECLARE c int;
+    
+    SELECT count(CaseID) into c
+	FROM Cases
+	WHERE statusOfCase = stat;
     
 	RETURN c;
 END; $$
