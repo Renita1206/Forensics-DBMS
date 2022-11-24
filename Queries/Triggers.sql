@@ -12,3 +12,22 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+
+-- Before deleting criminal record delete  case criminal record and also backup criminal info
+DELIMITER $$
+CREATE TRIGGER delCriminal
+BEFORE DELETE
+ON CRIMINAL FOR EACH ROW
+BEGIN
+    DECLARE criminalname, a, d, n varchar(255);
+    DECLARE ncases int;
+    DECLARE c1 CURSOR FOR SELECT CName, Alias, NoOfCases, DominantHand, nationality from CRIMINAL where CID = old.CID;
+    open c1;
+    fetch c1 into criminalname, a, ncases, d, n;
+    insert into criminalBackup values(criminalName, a, ncases, d, n);
+    close c1;
+    delete from CriminalCase where CriminalID = old.CID;
+END $$
+
+DELIMITER ;

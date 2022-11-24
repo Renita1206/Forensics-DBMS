@@ -6,10 +6,11 @@ from database import get_automobile_no
 from database import get_ballistics_no
 from database import get_drug_no
 from database import get_paint_no
-
+from database import get_case_no
+from database import get_criminal_no
 
 def delete():
-    menu = ["Drugs", "Ballistics", "Paint", "Automobile"]
+    menu = ["Automobile", "Ballistics", "Cases", "Criminal", "Drugs", "Ballistics", "Paint"]
     choice = st.sidebar.selectbox("Menu", menu)
     result = viewTables(choice)
     df = pd.DataFrame(result) 
@@ -22,7 +23,11 @@ def delete():
     elif choice=="Paint":
         list_of_id = [i[0] for i in get_paint_no()]
     elif choice=="Ballistics":
-        list_of_id = [i[0] for i in get_ballistics_no()]   
+        list_of_id = [i[0] for i in get_ballistics_no()] 
+    elif choice=="Cases":
+          list_of_id = [i[0] for i in get_case_no()]
+    elif choice=="Criminal":
+          list_of_id = [i[0] for i in get_criminal_no()]
     id=st.selectbox("Enter Evidence ID", list_of_id)
     if st.button("Delete Record"):
             delRec(id, choice)

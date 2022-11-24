@@ -89,6 +89,10 @@ def delRec(id, choice):
         command = 'DELETE FROM DRUGS where NDC_NO = "' + id + '"'
     elif choice=="Paint":
         command = 'DELETE FROM PAINT where PID = "' + id + '"'
+    elif choice=="Cases":
+        command = 'DELETE FROM CASES WHERE CaseID = "' + id + '"'
+    elif choice=="Criminal":
+        command = 'DELETE FROM CRIMINAL where CID = "' + id + '"'
     print(command)
     c.execute(command)
     mydb.commit()

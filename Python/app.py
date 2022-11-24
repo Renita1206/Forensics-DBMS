@@ -8,15 +8,15 @@ from delete import delete
 
 def main():
     st.title("Forensics Database")
-    menu = ["Add", "View", "Edit", "Remove", "Run Predefined Queries", "CMD"]
+    menu = ["Add Records", "View Tables", "Update Record", "Delete Records", "Run Predefined Queries", "CMD"]
     choice = st.sidebar.selectbox("Menu", menu)
-    if choice == "Add":
+    if choice == "Add Records":
         add()
-    elif choice == "View":
+    elif choice == "View Tables":
         read()
-    elif choice == "Edit":
+    elif choice == "Update Record":
         update()
-    elif choice == "Remove":
+    elif choice == "Delete Records":
         delete()
     elif choice=="Run Predefined Queries":
         predef_queries()
