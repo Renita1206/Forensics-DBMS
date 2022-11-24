@@ -18,9 +18,9 @@ def update():
     c1, c2 = st.columns(2)
     with c1:
         if (choice=="Criminal"):
-            id=st.selectbox("Enter Crime/Criminal ID", [i[0] for i in get_criminal_no()])
+            id=st.selectbox("Enter Criminal ID", [i[0] for i in get_criminal_no()])
         elif(choice=="Cases"):
-            id=st.selectbox("Enter Crime/Criminal ID", [i[0] for i in get_case_no()])
+            id=st.selectbox("Enter Crime ID", [i[0] for i in get_case_no()])
     with c2:
         if (choice=="Criminal"):
             status = st.selectbox("Status", ["Active", "Prison", "Dead", "Unknown"])
