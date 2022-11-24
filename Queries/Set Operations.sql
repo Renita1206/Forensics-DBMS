@@ -8,7 +8,7 @@ select model, Manufacturer, gauge, caliber from BALLISTICS where Year=1970
 INTERSECT
 select model, Manufacturer, gauge, caliber from BALLISTICS where typeOfGun="Handgun";
 
--- Cases lead by Jake and not assisted by Amy
+-- Cases lead by Jake and assisted by Amy
 select NameOfCase from CASES where LeadingOfficer="Jake Peralta"
 INTERSECT
 select NameOfCase from CASES where AsstOfficer="Amy Santiago";
