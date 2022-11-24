@@ -54,7 +54,7 @@ def add():
         with col1:
             id = st.text_input("Case ID")
             lo = st.text_input("Leading Officer")
-            stat = st.selectbox("Status", ["Ongoing", "Archived", "Unknown"])
+            stat = st.selectbox("Status", ["Ongoing", "Archived"])
             loc = st.text_input("Location")
         with col2:
             name = st.text_input("Name of Case")
