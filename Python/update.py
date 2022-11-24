@@ -10,7 +10,10 @@ def update():
     choice = st.sidebar.selectbox("Menu", menu)
     result = viewTables(choice)
     #print(result)
-    df = pd.DataFrame(result) 
+    if choice==menu[0]:
+        df = pd.DataFrame(result, columns=("Case ID", "Type", "Name", "Leading Officer", "Assissting Officer", "Time of Report", "Location", "Status"))
+    elif choice==menu[1]:
+        df = pd.DataFrame(result, columns=("Criminal ID", "Name", "Alias", "Age", "Number of Cases", "Dominant Hand", "Status", "DNA", "Fingerprint", "Nationality")) 
     st.dataframe(df)
     c1, c2 = st.columns(2)
     with c1:
