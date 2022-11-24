@@ -8,4 +8,4 @@ python -m streamlit run app.py
 ## Project Outline
 - UI interface allowing for CRUD operations
 - Run predefined queries and see output
-- CMD to run SQL commands if user so requires it
+- UI also allows users to run their own SQL commands
