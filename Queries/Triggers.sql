@@ -20,12 +20,12 @@ CREATE TRIGGER delCriminal
 BEFORE DELETE
 ON CRIMINAL FOR EACH ROW
 BEGIN
-    DECLARE criminalname, a, d, n varchar(255);
+    DECLARE id, criminalname, a, d, n varchar(255);
     DECLARE ncases int;
-    DECLARE c1 CURSOR FOR SELECT CName, Alias, NoOfCases, DominantHand, nationality from CRIMINAL where CID = old.CID;
+    DECLARE c1 CURSOR FOR SELECT CID, CName, Alias, NoOfCases, DominantHand, nationality from CRIMINAL where CID = old.CID;
     open c1;
-    fetch c1 into criminalname, a, ncases, d, n;
-    insert into criminalBackup values(criminalName, a, ncases, d, n);
+    fetch c1 into id, criminalname, a, ncases, d, n;
+    insert into criminalBackup values(id, criminalName, a, ncases, d, n);
     close c1;
     delete from CriminalCase where CriminalID = old.CID;
 END $$
