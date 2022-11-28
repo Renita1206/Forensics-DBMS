@@ -2,7 +2,7 @@
 
 
 ### Command To Run:  
-cd Python
+cd Python  
 python -m streamlit run app.py
 
 ## Project Outline
