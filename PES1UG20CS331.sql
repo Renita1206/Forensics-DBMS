@@ -1,3 +1,6 @@
+-- Renita Kurian - PES1UG20CS331
+-- Forensic Database Project
+
 -- CREATE DATABASE FORENSICS_331
 USE FORENSICS_331;
 
